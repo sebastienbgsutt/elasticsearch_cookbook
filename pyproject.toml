@@ -1,0 +1,17 @@
+[project]
+name = "elasticsearch-cookbook"
+version = "0.1.0"
+description = "Elasticsearch training exercises and cookbook"
+requires-python = ">=3.12"
+dependencies = [
+    "elasticsearch",
+    "jupyterlab",
+    "opentsne>=1.0.4",
+    "plotly>=6.5.0",
+    "requests",
+    "urllib3",
+    "pyyaml",
+    "pandas",
+    "numpy",
+    "scikit-learn",
+]

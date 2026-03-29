@@ -1,0 +1,147 @@
+{
+	"info": {
+		"_postman_id": "0813a8f5-08d8-43ed-b2fe-0194aab76848",
+		"name": "ES - TD2 2025",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39681976"
+	},
+	"item": [
+		{
+			"name": "3a - créer un index avec facteur de replication 2",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"settings\" : {\r\n    \"index\" : {\r\n      \"number_of_shards\" : 1,\r\n      \"number_of_replicas\" : 2\r\n    }\r\n  }\r\n}\r\n"
+				},
+				"url": {
+					"raw": "http://localhost:9200/multimedia",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"multimedia"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4a - Check état du cluster = yellow",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9200/_cluster/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"_cluster",
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2b - Check état du cluster = yellow (encore)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9200/_cluster/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"_cluster",
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3b - update facteur de replication 1",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"index\" : {\r\n    \"number_of_replicas\" : 1\r\n  }\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9200/multimedia/_settings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"multimedia",
+						"_settings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4b - Check état du cluster = green",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9200/_cluster/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"_cluster",
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5b - Check état du cluster = red",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9200/_cluster/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"_cluster",
+						"health"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
